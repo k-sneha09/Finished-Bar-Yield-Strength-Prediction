@@ -34,3 +34,21 @@ WATER_BOX = [
 ]
 CATEGORICAL = ["grade"]
 NUMERIC_FEATURES = CHEMISTRY + RHF + MILL + WATER_BOX
+
+# Physically plausible sensor ranges; values outside are treated as faulty readings (-> NaN).
+VALID_RANGES = {
+    "c_pct": (0.05, 0.40), "mn_pct": (0.3, 1.8), "si_pct": (0.05, 0.6),
+    "s_pct": (0.0, 0.06), "p_pct": (0.0, 0.06), "v_pct": (0.0, 0.15), "nb_pct": (0.0, 0.06),
+    "preheat_zone_temp_c": (700, 1050), "heating_zone_temp_c": (1000, 1300),
+    "soaking_zone_temp_c": (1100, 1320), "soaking_temp_c": (1050, 1300),
+    "rhf_residence_min": (30, 200), "discharge_temp_c": (1050, 1300),
+    "bar_dia_mm": (6, 40), "mill_speed_mps": (1.0, 30.0), "finishing_temp_c": (850, 1120),
+    "ambient_temp_c": (-10, 60),
+    "wb_pressure_bar": (0.5, 20.0), "wb_flow_m3h": (30, 500),
+    "wb_water_temp_c": (5, 60), "wb_valve_open_pct": (0, 100),
+    "yield_strength_mpa": (250, 900), "uts_mpa": (300, 1000),
+}
+ENGINEERED = [
+    "quench_index", "inv_speed", "surface_to_volume", "soak_to_finish_drop_c",
+    "zone_gradient_c", "microalloy_sum", "mn_c_ratio", "wb_power_index", "grade_min_ys",
+]
