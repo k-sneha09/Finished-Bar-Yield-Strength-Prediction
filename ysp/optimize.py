@@ -249,12 +249,14 @@ def _plots(summary, res, ys_bundle, uts_bundle, bounds, sigma_ys) -> None:
 
 def recommend_for(heat: dict | pd.Series, ys_bundle=None, uts_bundle=None, bounds=None) -> dict:
     """Recommend water-box and mill-speed setpoints for one heat (used by the prototype app)."""
-    df, _ = prepare(save=False)
-    train, _ = time_split(df)
     ys_bundle = ys_bundle or load_model()
-    uts_bundle = uts_bundle or load_or_train_uts(train)
-    bounds = bounds if bounds is not None else control_bounds(train)
+    if uts_bundle is None or bounds is None:
+        df, _ = prepare(save=False)
+        train, _ = time_split(df)
+        uts_bundle = uts_bundle or load_or_train_uts(train)
+        bounds = bounds if bounds is not None else control_bounds(train)
     row = pd.DataFrame([dict(heat)])
+    row["ceq"] = row["c_pct"] + row["mn_pct"] / 6 + row["si_pct"] / 24 + row["v_pct"] / 14
     dia = float(row["bar_dia_mm"].iloc[0])
     nearest = bounds.index[np.abs(bounds.index - dia).argmin()]
     bnd = bounds.loc[[nearest]].rename(index={nearest: dia})
