@@ -52,3 +52,7 @@ ENGINEERED = [
     "quench_index", "inv_speed", "surface_to_volume", "soak_to_finish_drop_c",
     "zone_gradient_c", "microalloy_sum", "mn_c_ratio", "wb_power_index", "grade_min_ys",
 ]
+
+# Agreed error band for the model vs lab-tested YS (MPa); tune with plant metallurgists.
+ERROR_BAND_MPA = 15
+HOLDOUT_FRACTION = 0.2  # most recent heats are held out as the "lab benchmark"
