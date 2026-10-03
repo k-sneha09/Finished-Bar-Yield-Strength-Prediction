@@ -1,0 +1,39 @@
+{
+  "n_heats": 996,
+  "feasible_pct": 89.65863453815261,
+  "sigma_ys_mpa": 8.474725600960598,
+  "sigma_uts_ys_ratio": 0.010771060831530031,
+  "lab_below_min_ys_pct_actual": 7.931726907630522,
+  "expected_offspec_pct_current": 21.63193417043927,
+  "expected_offspec_pct_recommended": 6.975048967843876,
+  "mill_speed_mean_current": 15.289911797188756,
+  "mill_speed_mean_recommended": 16.08974343289826,
+  "per_grade": {
+    "Fe500": {
+      "n": 259,
+      "feasible_pct": 89.96138996138995,
+      "expected_offspec_pct_current": 24.336337151799594,
+      "expected_offspec_pct_recommended": 7.5350848358556375
+    },
+    "Fe500D": {
+      "n": 407,
+      "feasible_pct": 98.03439803439802,
+      "expected_offspec_pct_current": 19.016310448432193,
+      "expected_offspec_pct_recommended": 1.641338650013315
+    },
+    "Fe550D": {
+      "n": 246,
+      "feasible_pct": 84.95934959349594,
+      "expected_offspec_pct_current": 22.241955073946812,
+      "expected_offspec_pct_recommended": 9.658970638842328
+    },
+    "Fe600": {
+      "n": 84,
+      "feasible_pct": 61.904761904761905,
+      "expected_offspec_pct_current": 24.18018822307856,
+      "expected_offspec_pct_recommended": 23.231311806848318
+    }
+  },
+  "offspec_reduction_pct_points": 14.656885202595394,
+  "mill_speed_gain_pct": 5.23110693062705
+}

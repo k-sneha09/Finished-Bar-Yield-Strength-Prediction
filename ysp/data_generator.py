@@ -103,7 +103,9 @@ def generate(n: int = 5000, seed: int = cfg.RANDOM_STATE, messy: bool = True) ->
     ys -= 0.08 * np.clip(soaking - 1210, 0, None) ** 1.2
     ys += rng.normal(0, 7.5, n)  # lab test scatter + unmodelled variation
 
-    uts = ys * (1.08 + 0.35 * (1 - rim_frac) * 0 + 0.06 * (ceq - 0.40) / 0.2) + rng.normal(0, 6, n)
+    # UTS/YS ratio (ductility proxy): a harder martensitic rim lifts YS but erodes the ratio
+    uts_ys = 1.14 + 0.30 * (0.20 - rim_frac) + 0.05 * (ceq - 0.40) / 0.2
+    uts = ys * uts_ys + rng.normal(0, 4, n)
     uts = np.maximum(uts, ys + 10)
 
     df = pd.DataFrame({

@@ -39,6 +39,7 @@ python -m ysp.data_generator      # writes data/raw/process_data.csv
 python -m ysp.preprocess          # clean + engineer features -> data/processed/
 python -m ysp.models               # train, CV, benchmark -> models/, reports/model_metrics.json
 python -m ysp.importance           # parameter ranking -> reports/parameter_ranking.md
+python -m ysp.optimize             # operating windows -> reports/operating_windows.md
 python -m ysp.eda                 # figures in reports/figures, reports/eda_summary.md
 pytest
 ```
